@@ -67,35 +67,30 @@
 | Kext | Description |
 | --- | --- |
 | [Lilu.kext](https://github.com/acidanthera/Lilu) | Platform for arbitrary kext, library, and program patching throughout the system |
-
-
-| [AMDRyzenCPUPowerManagement.kext](https://github.com/trulyspinach/SMCAMDProcessor) | Power management and monitoring of AMD processors |
-
+| [NootedRed.kext](https://github.com/ChefKissInc/NootedRed) | Lilu plugin for AMD Vega iGPUs |
 | [AppleALC.kext](https://github.com/acidanthera/AppleALC) | Native macOS HD audio for not officially supported codecs |
 | [AppleMCEReporterDisabler.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip) | Disables AppleIntelMCEReporter which causes panics on AMD CPUs |
-
-| [GUX-RyzenXHCIFix](https://github.com/RattletraPM/GUX-RyzenXHCIFix) | A fork of GenericUSBXHCI aimed at analyzing and fixing the USB3 |
-
-| [NVMeFix.kext](https://github.com/acidanthera/NVMeFix) | Improve compatibility with non-Apple SSDs |
-| [RadeonSensor.kext](https://github.com/aluveitie/RadeonSensor) | GPU temperature |
-
+| ~~[AmdTscSync.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip)~~ | Synchronises the TimeStamp Counter (TSC) Useful for AMD APUs that would be horrendously slow without it |
 | [RestrictEvents.kext](https://github.com/acidanthera/RestrictEvents) | Blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware |
-
+| [ECEnabler.kext](https://github.com/1Revenger1/ECEnabler) | Embedded Controller fields over 1 byte long needed for battery status |
+| [BrightnessKeys.kext](https://github.com/acidanthera/BrightnessKeys) | Provides support for ACPI brightness change notifications from Fn keys |
+| [AppleALC.kext](https://github.com/acidanthera/AppleALC) | Patches AppleHDA/AppleGFXHDA to allow unsupported audio codecs and HDMI audio |
+| [NVMeFix.kext](https://github.com/acidanthera/NVMeFix) | Patches the NVMe stack (IONVMeFamily) to support Autonomous Power State Transition (APST), and to fix timeout kernel panics on some NVMe controllers |
+| [GUX-RyzenXHCIFix](https://github.com/RattletraPM/GUX-RyzenXHCIFix) | A fork of GenericUSBXHCI aimed at analyzing and fixing the USB3 |
+| ~~[USBToolBox.kext & UTBMap.kext](https://github.com/USBToolBox/kext)~~ | USBToolBox kext is a kext intended to make common actions for USB mapping easier (do not combine with GUX-RyzenXHCIFix.kext) |
+| [AirportItlwm.kext](https://github.com/OpenIntelWireless) | Adds Intel WIFI support |
+| [AMDRyzenCPUPowerManagement.kext](https://github.com/trulyspinach/SMCAMDProcessor) | Power management and monitoring of AMD processors |
+| [RadeonSensor.kext](https://github.com/ChefKissInc/RadeonSensor) | GPU temperature |
+| [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC) | Advanced Apple SMC emulator in the kernel |
 | [SMCAMDProcessor.kext](https://github.com/trulyspinach/SMCAMDProcessor) | Power management and monitoring of AMD processors |
 | [SMCBatteryManager.kext](https://github.com/acidanthera/VirtualSMC) | Enables battery readings |
-
-| [USBToolBox.kext](https://github.com/USBToolBox/kext) | Common actions for USB mapping easier |
-| [UTBMap.kext](https://github.com/USBToolBox/tool) | USB Map performed with the USBToolbox tool on Windows 11 |
-
-| [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC) | Advanced Apple SMC emulator in the kernel |
-
+| [SMCSuperIO.kext](https://github.com/acidanthera/VirtualSMC) | Monitors fan speeds |
+| [SMCLightSensor.kext](https://github.com/acidanthera/VirtualSMC) | Adds support for ACPI Ambient Light Sensor |
+| [SMCRadeonGPU.kext](https://github.com/ChefKissInc/RadeonSensor | Monitors AMD GPU temperatures |
 | [VoodooPS2Controller.kext](https://github.com/acidanthera/VoodooPS2) | Fixes keyboard |
-| [VoodooI2C.kext & VoodooU2CHID.kext](https://nootinc.github.io/Extras/Kexts/VoodooI2C.zip) | Fixes trackpad |
-
-| [AirportItlwm.kext](https://github.com/OpenIntelWireless) | Adds Intel WIFI support |
-| [IntelBTPatcher.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Intel Bluetooth Kernel Extensions for macOS |
-| [IntelBluetoothFirmware.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Intel Bluetooth Kernel Extensions for macOS |
+| [VoodooI2C.kext & VoodooU2CHID.kext](https://chefkissinc.github.io/Extras/Kexts/VoodooI2C.zip) | Driver for I2C input devices. The one linked is a pre-release version with added support for AMD I2C controllers|
 | [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) | Patches Bluetooth stack to allow non-Apple Bluetooth |
+| [IntelBTPatcher.kext & IntelBluetoothFirmware.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Intel Bluetooth Kernel Extensions for macOS |<
 
 
 ## SSDTs Used
@@ -105,7 +100,9 @@ Done with [SSDTTime](https://github.com/corpnewt/SSDTTime) in Windows 11
 | Table | Description |
 | --- | --- |
 | [SSDT-EC](https://github.com/corpnewt/SSDTTime) | Adds a fake Embedded Controller device |
+| [SSDT-HPET](https://github.com/corpnewt/SSDTTime) | Fixes IRQ conflicts in the ACPI tables |
 | [SSDT-PLUG-ALT](https://github.com/corpnewt/SSDTTime) | Fixes CPU definitions |
+| [SSDT-PNLF](https://chefkissinc.github.io/Extras/SSDTs/SSDT-PNLF.aml) | Creates a fake PNLF device to allow for native brightness control on laptops |
 | [SSDT-USBX](https://github.com/corpnewt/SSDTTime) | Enables USB Power Management |
 | [SSDT-XOSI](https://github.com/corpnewt/SSDTTime) | Spoof macOS to Windows for some ACPI features |
 
