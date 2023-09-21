@@ -26,9 +26,9 @@
 | Item | Status | Notes |
 | --- | --- | --- |
 | CPU | ✅ | AMD Vanilla Kernel Patches ([Modify according to yours Core Count](https://github.com/AMD-OSX/AMD_Vanilla)) |
-| iGPU | ✅ | **Some OpenGL issues** |
-| Fn Keys | ✅ |  |
-| HDMI A/V out | ✅ | **_TBC_**  |
+| iGPU | ✅⚠️ | **Some OpenGL issues** |
+| Fn Keys | ✅ | SSDT & kext needed. |
+| HDMI A/V out | ✅ | _Audio not tested_  |
 | USB | ✅ | All ports working with **GUX-RyzenXHCIFix** (New fork of GenericUSBXHCI)|
 | Keyboard | ✅ | Voodoops2controller Kext + Karabiner-Elements app for mapping |
 | Audio | ✅ | AppleALC kext working with layout-id 21 |
@@ -36,10 +36,10 @@
 | Intel WIFI | ✅ | AirportItlwm Kext |
 | Bluetooth | ✅ | Internal Intel combo card with IntelBluetoothFirmware.kext + BlueToolFixup Kext |
 | Battery | ✅ | VoodooBatteryStatus Kext |
-| Shutdown/Reboot | ✅ |   |
+| Shutdown/Reboot | ✅ | No issues reported |
 ### OpenCore version: [0.9.4](https://github.com/acidanthera/opencorepkg/releases)
 ### Compatible macOS versions
- - Monterey (12.6.8)
+ - Monterey (12.6.9)
  - Big Sur (11.7.10)
  
 ## What Doesn't Work
@@ -51,16 +51,18 @@
 
 <a href="https://www.buymeacoffee.com/aleixsr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-**You CAN NOT use SMBIOS from this repository, it MUST be unique for every macOS installation**
+***
+> **You CAN NOT use SMBIOS from this repository, it MUST be unique for every macOS installation**
+
+***
 
 ## BIOS Options
 *   Secure Boot **Disabled**
 *	**_TBC_**: Increase VRAM to 1GB [UMAF Tool] (https://github.com/DavidS95/Smokeless_UMAF/)
 *	**_TBC_**: Use [UMAF](https://github.com/DavidS95/Smokeless_UMAF/) tool to enable `Above 4G decoding`
 *	Turn off `Secure Boot` and `Fast Boot`
-
-> [!Warning]
-> **_TBC_** Updating EFI may require clearing NVRAM to take full effect.
+ 
+> **[!Warning]** Updating EFI may require clearing NVRAM to take full effect.
 
 ## Kexts Used
 
@@ -68,7 +70,6 @@
 | --- | --- |
 | [Lilu.kext](https://github.com/acidanthera/Lilu) | Platform for arbitrary kext, library, and program patching throughout the system |
 | [NootedRed.kext](https://github.com/ChefKissInc/NootedRed) | Lilu plugin for AMD Vega iGPUs |
-| [AppleALC.kext](https://github.com/acidanthera/AppleALC) | Native macOS HD audio for not officially supported codecs |
 | [AppleMCEReporterDisabler.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip) | Disables AppleIntelMCEReporter which causes panics on AMD CPUs |
 | ~~[AmdTscSync.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip)~~ | Synchronises the TimeStamp Counter (TSC) Useful for AMD APUs that would be horrendously slow without it |
 | [RestrictEvents.kext](https://github.com/acidanthera/RestrictEvents) | Blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware |
@@ -86,11 +87,12 @@
 | [SMCBatteryManager.kext](https://github.com/acidanthera/VirtualSMC) | Enables battery readings |
 | [SMCSuperIO.kext](https://github.com/acidanthera/VirtualSMC) | Monitors fan speeds |
 | [SMCLightSensor.kext](https://github.com/acidanthera/VirtualSMC) | Adds support for ACPI Ambient Light Sensor |
-| [SMCRadeonGPU.kext](https://github.com/ChefKissInc/RadeonSensor | Monitors AMD GPU temperatures |
+| [SMCRadeonGPU.kext](https://github.com/ChefKissInc/RadeonSensor) | Monitors AMD GPU temperatures |
 | [VoodooPS2Controller.kext](https://github.com/acidanthera/VoodooPS2) | Fixes keyboard |
 | [VoodooI2C.kext & VoodooU2CHID.kext](https://chefkissinc.github.io/Extras/Kexts/VoodooI2C.zip) | Driver for I2C input devices. The one linked is a pre-release version with added support for AMD I2C controllers|
+| [IntelBTPatcher.kext & IntelBluetoothFirmware.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Intel Bluetooth Kernel Extensions for macOS |
 | [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) | Patches Bluetooth stack to allow non-Apple Bluetooth |
-| [IntelBTPatcher.kext & IntelBluetoothFirmware.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Intel Bluetooth Kernel Extensions for macOS |<
+
 
 
 ## SSDTs Used
@@ -99,6 +101,7 @@ Done with [SSDTTime](https://github.com/corpnewt/SSDTTime) in Windows 11
 
 | Table | Description |
 | --- | --- |
+| [SSDT-ALS0](https://chefkissinc.github.io/Extras/SSDTs/SSDT-ALS0.aml) | Adds a fake Ambient Light Sensor |
 | [SSDT-EC](https://github.com/corpnewt/SSDTTime) | Adds a fake Embedded Controller device |
 | [SSDT-HPET](https://github.com/corpnewt/SSDTTime) | Fixes IRQ conflicts in the ACPI tables |
 | [SSDT-PLUG-ALT](https://github.com/corpnewt/SSDTTime) | Fixes CPU definitions |
@@ -107,5 +110,8 @@ Done with [SSDTTime](https://github.com/corpnewt/SSDTTime) in Windows 11
 | [SSDT-XOSI](https://github.com/corpnewt/SSDTTime) | Spoof macOS to Windows for some ACPI features |
 
 ## Credits
-*   [AMD-OSX](https://forum.amd-osx.com/) Forum and the [dedicated Thread](https://forum.amd-osx.com/threads/amd-rayon-r7-5800h-install-monterey-kernel-panic.2725) users.
-*   ExtremeXT for help, corrections, my first EFI and git README info/references.
+* [Noot AMD Hackintosh Guide](https://chefkissinc.github.io/guide)
+* [NootedRed Guide](https://chefkissinc.github.io/nred)
+* [ChefKiss Telegram Group](https://t.me/+Bx3MO9Hq8whhNzk9)
+* <https://github.com/PIut02/ROG-Zephyrus-G14-GA401-Hackintosh> info/references.
+* <https://github.com/kalkmann/Legion-5600H-Hackintosh> info/references.
