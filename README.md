@@ -9,7 +9,6 @@
 *   [Kexts Used](#kexts-used)
 *   [SSDTs Used](#ssdts-used)
 *   [Credits](#credits)
-*   [Screenshots](#screenshots)
 
 ## Specifications
 | **Component** | **Model** |
@@ -26,7 +25,7 @@
 | Item | Status | Notes |
 | --- | --- | --- |
 | CPU | ✅ | AMD Vanilla Kernel Patches ([Modify according to yours Core Count](https://github.com/AMD-OSX/AMD_Vanilla)) |
-| iGPU | ✅⚠️ | **Some OpenGL issues** |
+| iGPU | ✅⚠️ | **Some OpenGL issues, check [#7](https://github.com/aleixsr/HP-Pavilion-Aero-13-Hackintosh/issues/7) to mitigte them.** |
 | Fn Keys | ✅ | SSDT & kext needed. |
 | HDMI A/V out | ✅ | _Audio not tested_  |
 | USB | ✅ | All ports working with **GUX-RyzenXHCIFix** (New fork of GenericUSBXHCI)|
@@ -57,10 +56,10 @@
 ***
 
 ## BIOS Options
-*   Secure Boot **Disabled**
-*	**_TBC_**: Increase VRAM to 1GB [UMAF Tool] (https://github.com/DavidS95/Smokeless_UMAF/)
+*   Press `Esc` (Boot Menu) or `F9` (Boot Options) or `F10` (Bios Settings)
+    *   Turn off `Secure Boot` and ~~`Fast Boot`~~
+*   Increase VRAM to 1GB minimum [UMAF Tool] (https://github.com/DavidS95/Smokeless_UMAF/). Also check [#7](https://github.com/aleixsr/HP-Pavilion-Aero-13-Hackintosh/issues/7)
 *	**_TBC_**: Use [UMAF](https://github.com/DavidS95/Smokeless_UMAF/) tool to enable `Above 4G decoding`
-*	Turn off `Secure Boot` and `Fast Boot`
  
 > **[!Warning]** Updating EFI may require clearing NVRAM to take full effect.
 
