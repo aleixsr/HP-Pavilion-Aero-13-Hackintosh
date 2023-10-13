@@ -37,7 +37,7 @@
 | Bluetooth | ✅ | Internal Intel combo card with IntelBluetoothFirmware.kext + BlueToolFixup.kext. ***Issues under Monterey*** |
 | Battery | ✅ | VoodooBatteryStatus Kext |
 | Shutdown/Reboot | ✅ | No issues reported |
-| Sleep/Wake up | ✅ | Using S3 sleep DSDT patch. Thanks [@MotorBottle] (https://github.com/MotorBottle/S3-Sleep-on-Rog-X13-G14-15-2021-2022-using-OpenCore)|
+| Sleep/Wake up | ✅ | Using S3 sleep DSDT patch. Thanks [@MotorBottle] (https://github.com/MotorBottle/S3-Sleep-on-Rog-X13-G14-15-2021-2022-using-OpenCore) |
 ### OpenCore version: [0.9.5](https://github.com/acidanthera/opencorepkg/releases)
 ### Compatible macOS versions
  - Ventura (13.6)
