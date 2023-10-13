@@ -9,6 +9,7 @@
 *   [Kexts Used](#kexts-used)
 *   [SSDTs Used](#ssdts-used)
 *   [Credits](#credits)
+*   [Screenshots](#screenshots)
 
 ## Specifications
 | **Component** | **Model** |
@@ -16,7 +17,7 @@
 | CPU | AMD Ryzen™ 7 5800U (8 cores, 16 threads) |
 | RAM | 16GB (2 x 8GB) DDR4-3200 MHz (built-in) |
 | IGPU | AMD Radeon™ Vega (integrated)	|
-| Display | 13.3" (33.8 cm) WQXGA (2560 x 1600), IPS, micro-edge, anti-glare, 400 nits, 100% sRGB |
+| Display | 13.3" (33.8 cm) WQXGA (2560 x 1600), IPS, micro-edge, anti-glare, 400 nits, 100% sRGB. *Use 1440x900 as recommended resolution*. |
 | NVMe | Intel SSDPEKNW512G8H 512GB |
 | Audio | Realtek ACL298 |
 | Wireless | ~~Realtek RTL8821CE-M~~ replaced by Intel AX210 (check https://www.youtube.com/watch?v=ZTtJCZHUgnY) |
@@ -25,7 +26,7 @@
 | Item | Status | Notes |
 | --- | --- | --- |
 | CPU | ✅ | AMD Vanilla Kernel Patches ([Modify according to yours Core Count](https://github.com/AMD-OSX/AMD_Vanilla)) |
-| iGPU | ✅⚠️ | **Some OpenGL issues, check [#7](https://github.com/aleixsr/HP-Pavilion-Aero-13-Hackintosh/issues/7) to mitigte them.** |
+| iGPU | ✅⚠️ | **Some OpenGL issues, mitigated incrementing VRAM to 1GB** |
 | Fn Keys | ✅ | SSDT & kext needed. |
 | HDMI A/V out | ✅ | _Audio not tested_  |
 | USB | ✅ | All ports working with **GUX-RyzenXHCIFix** (New fork of GenericUSBXHCI)|
@@ -33,19 +34,20 @@
 | Audio | ✅ | AppleALC kext working with layout-id 21 |
 | Trackpad | ✅ | VoodooI2C |
 | Intel WIFI | ✅ | AirportItlwm Kext |
-| Bluetooth | ✅ | Internal Intel combo card with IntelBluetoothFirmware.kext + BlueToolFixup Kext |
+| Bluetooth | ✅ | Internal Intel combo card with IntelBluetoothFirmware.kext + BlueToolFixup.kext. ***Issues under Monterey*** |
 | Battery | ✅ | VoodooBatteryStatus Kext |
 | Shutdown/Reboot | ✅ | No issues reported |
-### OpenCore version: [0.9.4](https://github.com/acidanthera/opencorepkg/releases)
+| Sleep/Wake up | ✅ | Using S3 sleep DSDT patch. Thanks [@MotorBottle] (https://github.com/MotorBottle/S3-Sleep-on-Rog-X13-G14-15-2021-2022-using-OpenCore)|
+### OpenCore version: [0.9.5](https://github.com/acidanthera/opencorepkg/releases)
 ### Compatible macOS versions
- - Monterey (12.6.9)
+ - Ventura (13.6)
+ - Monterey (12.7)
  - Big Sur (11.7.10)
  
 ## What Doesn't Work
 | Item | Status | Notes |
 | --- | --- | --- |
 | Fingerprint Reader | ❌ | No kext |
-| Sleep/Wake up | ❓ | **_TODO_** |
 
 
 <a href="https://www.buymeacoffee.com/aleixsr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
@@ -56,10 +58,9 @@
 ***
 
 ## BIOS Options
-*   Press `Esc` (Boot Menu) or `F9` (Boot Options) or `F10` (Bios Settings)
-    *   Turn off `Secure Boot` and ~~`Fast Boot`~~
-*   Increase VRAM to 1GB minimum [UMAF Tool] (https://github.com/DavidS95/Smokeless_UMAF/). Also check [#7](https://github.com/aleixsr/HP-Pavilion-Aero-13-Hackintosh/issues/7)
-*	**_TBC_**: Use [UMAF](https://github.com/DavidS95/Smokeless_UMAF/) tool to enable `Above 4G decoding`
+*   Turn off `Secure Boot` and `Fast Boot`
+*	 Increase VRAM to 1GB [UMAF Tool] (https://github.com/DavidS95/Smokeless_UMAF/)
+*	~~Use [UMAF](https://github.com/DavidS95/Smokeless_UMAF/) tool to enable `Above 4G decoding`~~ *Not recommended if you have Dual Boot with Windows, Fn keys stopped working*.
  
 > **[!Warning]** Updating EFI may require clearing NVRAM to take full effect.
 
@@ -107,6 +108,7 @@ Done with [SSDTTime](https://github.com/corpnewt/SSDTTime) in Windows 11
 | [SSDT-PNLF](https://chefkissinc.github.io/Extras/SSDTs/SSDT-PNLF.aml) | Creates a fake PNLF device to allow for native brightness control on laptops |
 | [SSDT-USBX](https://github.com/corpnewt/SSDTTime) | Enables USB Power Management |
 | [SSDT-XOSI](https://github.com/corpnewt/SSDTTime) | Spoof macOS to Windows for some ACPI features |
+| [DSDT-S3](#) | DSDT modified with S3 Sleep Mode |
 
 ## Credits
 * [Noot AMD Hackintosh Guide](https://chefkissinc.github.io/guide)
