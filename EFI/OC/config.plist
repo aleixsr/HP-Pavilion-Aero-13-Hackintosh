@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>#OC 0.9.5 - HP Pavilion Aero 13 - MacBookPro16,3</key>
-	<string>aleixsr v23.10.14 || Disabled: alcid=21 | Added DSDT-S3.aml + npci=0x3000 + revblock=media</string>
+	<key>#OC 0.9.9 - HP Pavilion Aero 13 - MacBookPro16,3</key>
+	<string>aleixsr v24.03.28 || Disabled: alcid=21 | Added DSDT-S3.aml + npci=0x3000 + revblock=media</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -459,6 +459,8 @@
 			<true/>
 			<key>EnableWriteUnprotector</key>
 			<true/>
+			<key>FixupAppleEfiImages</key>
+			<false/>
 			<key>ForceBooterSignature</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -492,8 +494,7 @@
 			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x6)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Internal@0,8,1/0,6
-</string>
+				<string>Internal@0,8,1/0,6</string>
 				<key>device_type</key>
 				<string>Audio device</string>
 				<key>layout-id</key>
@@ -1525,7 +1526,7 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Base</key>
-				<string>_cpuid_set_info </string>
+				<string>_cpuid_set_info</string>
 				<key>Comment</key>
 				<string>algrey | _cpuid_set_cpufamily | Force CPUFAMILY_INTEL_PENRYN | 11.3+</string>
 				<key>Count</key>
