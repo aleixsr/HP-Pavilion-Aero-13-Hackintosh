@@ -42,9 +42,7 @@
 ### OpenCore version: [0.9.5](https://github.com/acidanthera/opencorepkg/releases)
 
 ### Compatible macOS versions
- - Ventura (13.6)
- - Monterey (12.7)
- - Big Sur (11.7.10)
+ - Ventura (13.7.1)
  
 ## What Doesn't Work
 | Item | Status | Notes |
@@ -72,7 +70,7 @@
 | --- | --- |
 | [Lilu.kext](https://github.com/acidanthera/Lilu) | Platform for arbitrary kext, library, and program patching throughout the system |
 | [NootedRed.kext](https://github.com/ChefKissInc/NootedRed) | Lilu plugin for AMD Vega iGPUs |
-| [AppleMCEReporterDisabler.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip) | Disables AppleIntelMCEReporter which causes panics on AMD CPUs |
+| [AppleMCEReporterDisabler.kext](https://chefkissinc.github.io/Extras/Kexts/AppleMCEReporterDisabler.zip) | Disables AppleIntelMCEReporter which causes panics on AMD CPUs |
 | ~~[AmdTscSync.kext](https://files.amd-osx.com/AppleMCEReporterDisabler.kext.zip)~~ | Synchronises the TimeStamp Counter (TSC) Useful for AMD APUs that would be horrendously slow without it |
 | [RestrictEvents.kext](https://github.com/acidanthera/RestrictEvents) | Blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware |
 | [ECEnabler.kext](https://github.com/1Revenger1/ECEnabler) | Embedded Controller fields over 1 byte long needed for battery status |
