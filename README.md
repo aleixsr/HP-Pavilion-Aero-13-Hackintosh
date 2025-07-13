@@ -20,7 +20,7 @@
 | Display | 13.3" (33.8 cm) WQXGA (2560 x 1600), IPS, micro-edge, anti-glare, 400 nits, 100% sRGB. *Use 1440x900 as recommended resolution*. |
 | NVMe | Intel SSDPEKNW512G8H 512GB |
 | Audio | Realtek ACL298 |
-| Wireless | ~~Realtek RTL8821CE-M~~ replaced by Intel AX210 (check https://www.youtube.com/watch?v=ZTtJCZHUgnY) |
+| Wireless | ~~Realtek RTL8821CE-M~~ replaced by Intel AX210 or Broadcom DW1560 (check https://www.youtube.com/watch?v=ZTtJCZHUgnY) |
 
 ## What Works
 | Item | Status | Notes |
@@ -29,20 +29,22 @@
 | iGPU | ✅⚠️ | **Some OpenGL issues, mitigated incrementing VRAM to 1GB** |
 | Fn Keys | ✅ | SSDT & kext needed. |
 | HDMI A/V out | ✅ | _Audio not tested_  |
-| USB | ✅ | All ports working with **GUX-RyzenXHCIFix** (New fork of GenericUSBXHCI)|
+| USB | ✅ | All ports working (Also BT under Sequoia)|
 | Keyboard | ✅ | Voodoops2controller Kext + Karabiner-Elements app for mapping |
 | Audio | ✅ | AppleALC kext working with layout-id 21 |
 | Trackpad | ✅ | VoodooI2C |
-| Intel WIFI | ✅ | AirportItlwm Kext |
-| Bluetooth | ✅ | Internal Intel combo card with IntelBluetoothFirmware.kext + BlueToolFixup.kext. ***Issues under Monterey*** |
+| WIFI | ✅ | Broadcom (Default) and Intel Kexts |
+| Bluetooth | ✅ | Important to map correctly|
 | Battery | ✅ | VoodooBatteryStatus Kext |
 | Shutdown/Reboot | ✅ | No issues reported |
 | Sleep/Wake up | ✅ | Using S3 sleep DSDT patch. Thanks [@MotorBottle](https://github.com/MotorBottle/S3-Sleep-on-Rog-X13-G14-15-2021-2022-using-OpenCore) |
 
-### OpenCore version: [0.9.5](https://github.com/acidanthera/opencorepkg/releases)
+### OpenCore version: [1.0.5](https://github.com/acidanthera/opencorepkg/releases)
 
 ### Compatible macOS versions
  - Ventura (13.7.1)
+ - Sonoma (14.7)
+ - Sequoia (15.4.1)
  
 ## What Doesn't Work
 | Item | Status | Notes |
